@@ -56,7 +56,18 @@ export default function EventsPage() {
                             <span className="text-primary font-bold">DURATION:</span>
                             <span>{event.duration}</span>
                           </div>
-                          <div className="mt-4">{event.description}</div>
+                          <div className="mt-4">
+                            {event.description.split('\n').map((line, i) => (
+                              <div key={i} className={line.startsWith('**') && line.endsWith('**') ? 'font-bold mt-2 mb-1' : line.trim() === '' ? 'mb-2' : ''}>
+                                {line.startsWith('**') && line.endsWith('**')
+                                  ? line.slice(2, -2)
+                                  : line.startsWith('•')
+                                    ? <span className="ml-2">{line}</span>
+                                    : line
+                                }
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </TerminalText>
                     </div>
