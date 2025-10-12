@@ -35,6 +35,15 @@ export default function EventsPage() {
               {events.recurringEvents.map((event, index) => (
                 <div key={index} className="feature-card p-6">
                   <div className="grid md:grid-cols-3 gap-6">
+                    {event.imageUrl && (
+                      <div className="screenshot-hover overflow-hidden flex items-start justify-center">
+                        <img
+                          src={event.imageUrl}
+                          alt={event.title}
+                          className="w-full h-auto object-contain"
+                        />
+                      </div>
+                    )}
                     <div className="md:col-span-2">
                       <div className="text-accent text-2xl font-bold mb-3">{event.title}</div>
                       <TerminalText>
@@ -51,15 +60,6 @@ export default function EventsPage() {
                         </div>
                       </TerminalText>
                     </div>
-                    {event.imageUrl && (
-                      <div className="screenshot-hover overflow-hidden">
-                        <img
-                          src={event.imageUrl}
-                          alt={event.title}
-                          className="w-full h-48 object-cover"
-                        />
-                      </div>
-                    )}
                   </div>
                 </div>
               ))}

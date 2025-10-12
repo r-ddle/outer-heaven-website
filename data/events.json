@@ -1,4 +1,12 @@
 {
-  "recurringEvents": [],
+  "recurringEvents": [
+    {
+      "title": "MEGAMIND MOVIE NIGHT",
+      "schedule": "October 18th @ 18:00 UTC",
+      "duration": "Until end",
+      "description": "Join us for Movie Weekend! We're watching Megamind together. Grab your snacks and get ready for some quality movie time with the crew.",
+      "imageUrl": "/events/megamindmovienight.jpg"
+    }
+  ],
   "specialOperations": []
 }
