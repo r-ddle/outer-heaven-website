@@ -247,7 +247,7 @@ export default function BotPage() {
 
               <div className="bg-card/50 p-4 border-l-4 border-primary">
                 <div className="text-primary font-bold mb-2">PRIVATE</div>
-                <div className="text-sm text-muted-foreground">200 XP required</div>
+                <div className="text-sm text-muted-foreground">100 XP required</div>
               </div>
 
               <div className="bg-card/50 p-4 border-l-4 border-primary">
