@@ -4,8 +4,10 @@ import { CodecSection } from "@/components/codec-section"
 import { TerminalText } from "@/components/terminal-text"
 import Link from "next/link"
 import { JoinButton } from "@/components/join-button"
+import { getSiteConfig, SiteConfig } from "@/types/site-config"
 
-export default function Home() {
+export default async function Home() {
+  const config: SiteConfig = await getSiteConfig();
   return (
     <main className="min-h-screen p-4 md:p-8">
       <div className="max-w-7xl mx-auto space-y-6">
@@ -103,7 +105,7 @@ export default function Home() {
           <div className="codec-frame p-6 bg-card/30 text-center">
             <div className="corner-bl"></div>
             <div className="corner-br"></div>
-            <div className="text-3xl font-bold text-primary mb-2">27</div>
+            <div className="text-3xl font-bold text-primary mb-2">{config.activeMembers}</div>
             <div className="text-sm text-muted-foreground">ACTIVE MEMBERS</div>
           </div>
 

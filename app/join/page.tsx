@@ -2,8 +2,10 @@ import { CodecHeader } from "@/components/codec-header"
 import { Navigation } from "@/components/navigation"
 import { CodecSection } from "@/components/codec-section"
 import { JoinButton } from "@/components/join-button"
+import { getSiteConfig, SiteConfig } from "@/types/site-config"
 
-export default function JoinPage() {
+export default async function JoinPage() {
+  const config: SiteConfig = await getSiteConfig();
   return (
     <main className="min-h-screen p-4 md:p-8">
       <div className="max-w-4xl mx-auto space-y-6">
@@ -25,8 +27,8 @@ export default function JoinPage() {
               </div>
               <div className="text-xl md:text-2xl text-foreground mb-6">Join Outer Heaven: Exiled Units on Discord</div>
               <div className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                {">"} Whether you're a veteran of Shadow Moses or a rookie fresh from boot camp, you'll find your place
-                among our ranks. Join 500+ operatives in tactical gaming, lore discussions, and community events.
+                Whether you're a veteran of Shadow Moses or a rookie fresh from boot camp, you'll find your place
+                among our ranks. Join {Math.floor(config.activeMembers / 10) * 10}+ operatives in tactical gaming, lore discussions, and community events.
               </div>
             </div>
 
@@ -34,7 +36,7 @@ export default function JoinPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">20+</div>
+                <div className="text-3xl font-bold text-primary mb-2">{Math.floor(config.activeMembers / 10) * 10}+</div>
                 <div className="text-sm text-muted-foreground">Active Members</div>
               </div>
               <div className="text-center">
@@ -99,7 +101,7 @@ export default function JoinPage() {
               joining.
             </div>
             <div className="pt-4 border-t border-border/30 mt-6">
-              <div className="text-sm text-muted-foreground mb-2">FREQUENCY: <a href="https://discord.gg/eDkGBu3524" target="_blank">https://discord.gg/outerheaven</a></div>
+              <div className="text-sm text-muted-foreground mb-2">FREQUENCY: <a href={config.discordInviteUrl} target="_blank">https://discord.gg/outerheaven</a></div>
               <div className="flex items-center justify-center gap-2">
                 <span className="inline-block w-2 h-2 bg-primary rounded-full animate-pulse"></span>
                 <span className="text-primary">TRANSMISSION ACTIVE</span>
