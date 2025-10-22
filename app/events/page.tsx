@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { CodecHeader } from "@/components/codec-header"
 import { Navigation } from "@/components/navigation"
 import { CodecSection } from "@/components/codec-section"
@@ -42,9 +43,12 @@ export default function EventsPage() {
                     <div className="flex flex-col gap-6">
                       {event.imageUrl && (
                         <div className="screenshot-hover overflow-hidden flex items-center justify-center w-full">
-                          <img
+                          <Image
                             src={event.imageUrl}
                             alt={event.title}
+                            width={2245}
+                            height={1587}
+                            priority={index === 0}
                             className="w-full h-auto object-contain"
                           />
                         </div>
@@ -82,9 +86,12 @@ export default function EventsPage() {
                     <div className="grid md:grid-cols-3 gap-6">
                       {event.imageUrl && (
                         <div className="screenshot-hover overflow-hidden flex items-start justify-center">
-                          <img
+                          <Image
                             src={event.imageUrl}
                             alt={event.title}
+                            width={300}
+                            height={400}
+                            priority={index === 0}
                             className="w-full h-auto object-contain"
                           />
                         </div>
