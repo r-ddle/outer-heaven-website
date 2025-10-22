@@ -4,6 +4,8 @@ export interface RecurringEvent {
   duration: string
   description: string
   imageUrl?: string
+  isOver?: boolean
+  imageIsWide?: boolean
 }
 
 export interface SpecialOperation {

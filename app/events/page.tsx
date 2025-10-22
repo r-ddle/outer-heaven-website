@@ -33,45 +33,91 @@ export default function EventsPage() {
           {events.recurringEvents.length > 0 ? (
             <div className="space-y-6">
               {events.recurringEvents.map((event, index) => (
-                <div key={index} className="feature-card p-6">
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {event.imageUrl && (
-                      <div className="screenshot-hover overflow-hidden flex items-start justify-center">
-                        <img
-                          src={event.imageUrl}
-                          alt={event.title}
-                          className="w-full h-auto object-contain"
-                        />
-                      </div>
-                    )}
-                    <div className="md:col-span-2">
-                      <div className="text-accent text-2xl font-bold mb-3">{event.title}</div>
-                      <TerminalText>
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2">
-                            <span className="text-primary font-bold">SCHEDULE:</span>
-                            <span>{event.schedule}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-primary font-bold">DURATION:</span>
-                            <span>{event.duration}</span>
-                          </div>
-                          <div className="mt-4">
-                            {event.description.split('\n').map((line, i) => (
-                              <div key={i} className={line.startsWith('**') && line.endsWith('**') ? 'font-bold mt-2 mb-1' : line.trim() === '' ? 'mb-2' : ''}>
-                                {line.startsWith('**') && line.endsWith('**')
-                                  ? line.slice(2, -2)
-                                  : line.startsWith('•')
-                                    ? <span className="ml-2">{line}</span>
-                                    : line
-                                }
-                              </div>
-                            ))}
-                          </div>
+                <div key={index} className={`feature-card p-6 ${event.isOver ? 'relative' : ''}`}>
+                  {event.isOver && (
+                    <div className="absolute inset-0 bg-red-600/40 rounded pointer-events-none"></div>
+                  )}
+                  {event.imageIsWide ? (
+                    // Wide layout: image on top, details below
+                    <div className="flex flex-col gap-6">
+                      {event.imageUrl && (
+                        <div className="screenshot-hover overflow-hidden flex items-center justify-center w-full">
+                          <img
+                            src={event.imageUrl}
+                            alt={event.title}
+                            className="w-full h-auto object-contain"
+                          />
                         </div>
-                      </TerminalText>
+                      )}
+                      <div>
+                        <div className="text-accent text-2xl font-bold mb-3">{event.title}</div>
+                        <TerminalText>
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2">
+                              <span className="text-primary font-bold">SCHEDULE:</span>
+                              <span>{event.schedule}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-primary font-bold">DURATION:</span>
+                              <span>{event.duration}</span>
+                            </div>
+                            <div className="mt-4">
+                              {event.description.split('\n').map((line, i) => (
+                                <div key={i} className={line.startsWith('**') && line.endsWith('**') ? 'font-bold mt-2 mb-1' : line.trim() === '' ? 'mb-2' : ''}>
+                                  {line.startsWith('**') && line.endsWith('**')
+                                    ? line.slice(2, -2)
+                                    : line.startsWith('•')
+                                      ? <span className="ml-2">{line}</span>
+                                      : line
+                                  }
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </TerminalText>
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    // Original layout: image on left, details on right
+                    <div className="grid md:grid-cols-3 gap-6">
+                      {event.imageUrl && (
+                        <div className="screenshot-hover overflow-hidden flex items-start justify-center">
+                          <img
+                            src={event.imageUrl}
+                            alt={event.title}
+                            className="w-full h-auto object-contain"
+                          />
+                        </div>
+                      )}
+                      <div className="md:col-span-2">
+                        <div className="text-accent text-2xl font-bold mb-3">{event.title}</div>
+                        <TerminalText>
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2">
+                              <span className="text-primary font-bold">SCHEDULE:</span>
+                              <span>{event.schedule}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-primary font-bold">DURATION:</span>
+                              <span>{event.duration}</span>
+                            </div>
+                            <div className="mt-4">
+                              {event.description.split('\n').map((line, i) => (
+                                <div key={i} className={line.startsWith('**') && line.endsWith('**') ? 'font-bold mt-2 mb-1' : line.trim() === '' ? 'mb-2' : ''}>
+                                  {line.startsWith('**') && line.endsWith('**')
+                                    ? line.slice(2, -2)
+                                    : line.startsWith('•')
+                                      ? <span className="ml-2">{line}</span>
+                                      : line
+                                  }
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </TerminalText>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

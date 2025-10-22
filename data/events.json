@@ -1,11 +1,20 @@
 {
   "recurringEvents": [
+        {
+      "title": "ALL QUIET ON THE WESTERN FRONT MOVIE NIGHT",
+      "schedule": "October 25th, 2025 @ 23:32 UTC (18:02 UTC original, 23:32 UTC stream start)",
+      "duration": "2h 27min",
+      "description": "Join us for another Movie Weekend! We're watching All Quiet on the Western Front (2022). Grab your snacks and get ready for an intense war drama with the crew.\n\n**MOVIE DETAILS:**\nRuntime: 2h 27min\nRated R for strong bloody war violence and grisly images\nMovie Host: Kazoir\n\n**MOVIE NIGHT GUIDELINES:**\n• Join the voice channel 15 minutes early for setup and socializing\n• There will be exactly 2 bathroom breaks: one approximately 30 minutes after the start, and another 30 minutes after that\n• The movie will NOT be paused outside of these 2 scheduled breaks\n• Keep spoilers to a minimum during the movie\n• Use reactions to express your thoughts without spoiling\n• Stay muted during the movie unless you're the host\n• Have fun and enjoy the film together!\n\n**TECHNICAL NOTES:**\n• Movie will be streamed via screen share\n• Make sure your connection is stable\n• Test your audio before the movie starts\n• Questions welcome in text chat during the film",
+      "imageUrl": "/events/allquietonthewesternfrontmovienight.png",
+      "imageIsWide": true
+    },
     {
       "title": "MEGAMIND MOVIE NIGHT",
       "schedule": "October 18th @ 18:00 UTC",
       "duration": "Until end",
       "description": "Join us for Movie Weekend! We're watching Megamind together. Grab your snacks and get ready for some quality movie time with the crew.\n\n**MOVIE NIGHT GUIDELINES:**\n• Join the voice channel 15 minutes early for setup and socializing\n• Short breaks are allowed for bathroom/emergency purposes\n• Keep spoilers to a minimum during the movie\n• Use reactions to express your thoughts without spoiling\n• Stay muted during the movie unless you're the host\n• Have fun and enjoy the film together!\n\n**TECHNICAL NOTES:**\n• Movie will be streamed via screen share\n• Make sure your connection is stable\n• Test your audio before the movie starts\n• Questions welcome in text chat during the film",
-      "imageUrl": "/events/megamindmovienight.jpg"
+      "imageUrl": "/events/megamindmovienight.jpg",
+      "isOver": true
     }
   ],
   "specialOperations": []
